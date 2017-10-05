@@ -6,7 +6,7 @@
 python manage.py makemigrations
 python manage.py migrate
 ``` 
-	创建 superuser:  
+创建 superuser:  
 ```
 python manage.py createsuperuser
 ```  
@@ -17,4 +17,11 @@ python manage.py createsuperuser
 ```python
 USE_TZ = True
 TIME_ZONE = 'Asia/Shanghai'
+```  
+  
+* mysqldb 不支持 python3.6  
+改用 pymysql，修改站点 **\_\_init\_\_.py**  
+```python
+import pymysql
+pymysql.install_as_MySQLdb()
 ```
