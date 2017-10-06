@@ -1,6 +1,6 @@
 ### 10.05.2017  
 
-* 库的操作：  
+* mysql库的操作：  
 ```
 mysql> create database test;
 mysql> show database;
@@ -89,8 +89,46 @@ mysql> select name from people
 * pymysql 
 ```
 >>> import pymysql
->>> conn = pymysql.connect(host='127.0.0.1',port=3306,user='zt',password='xxx')
+>>> conn = pymysql.connect(host='127.0.0.1',port=3306,user='zt',password='xxx',db='test')
 	#创建连接
->>> cursor = conn.cursor()
+>>> cur = conn.cursor()
 	#创建游标
+```  
+
+### 10.06.2017
+* pymysql
+1. 插入数据
+```python
+ret = cur.excute('insert into table(field1, field2) values(%s,%s)', (a,b))
+#插入一条数据
+ret = cur.excutemany('insert into table(f1, f2) values(%s,%s)',[(a1,b1),(a2,b2)])
+#插入多条数据
+conn.commit()   #提交
+cur.close()     #关闭指针对象
+conn.close()    #关闭连接对象
+```
+2. 查询数据  
+`cur.fetchall()` `cur.fetchone` `cur.fetchmany(3)`
+```python
+cur.execute('select * from table')
+#查询表中存在数据
+```  
+`cursor.scroll(num, mode)`移动游标位置  
+```python
+cursor.scroll(1,mode='relative')  
+#相对当前位置移动【1：表示向下移动一行，-1：表示向上移动一行】
+cursor.scroll(2,mode='absolute') 
+#相对绝对位置移动
+```
+3. 删除数据  
+`cur.execute("delete * from lcj")`
+4. 修改数据  
+`cur.execute('UPDATE table set f1 = 'new' where f1='old')`
+5. fetch数据类型  
+`cur = conn.cursor(cursor=pymysql.cursors.DictCursor)`
+```python
+cur = conn.cursor(cursor=pymysql.cursors.DictCursor)
+#游标设置为字典类型
+cur.excute(select * from table)
+ret = cur.fetchall()
 ```

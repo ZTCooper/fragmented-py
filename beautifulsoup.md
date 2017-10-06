@@ -1,7 +1,6 @@
 # BeautifulSoup<br>
 [Beautiful Soup 4.4.0 documentation 
 ](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)  
-*** 
   
 主要在爬虫中写parse用到   
 完整的**Scrapy project**在这里：  
