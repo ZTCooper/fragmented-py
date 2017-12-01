@@ -1,4 +1,3 @@
-### 10.05.2017  
 
 * mysql库的操作：  
 ```
@@ -77,6 +76,10 @@ mysql> select name from people
 | zt   |
 +------+
 
+like字句
+mysql> SELECT * from w3cschool_tbl 
+    -> WHERE w3cschool_author LIKE '%jay'
+
 mysql> select name from people
     -> where num between 2 and 3;
 +------+
@@ -84,6 +87,36 @@ mysql> select name from people
 +------+
 | qjw  |
 +------+
+
+binary设定大小写敏感
+mysql> SELECT * from w3cschool_tbl \
+          WHERE BINARY w3cschool_author='sanjay';
+	  
+	  
+oeder by排序
+升序
+mysql> SELECT * from w3cschool_tbl ORDER BY w3cschool_author ASC;
+降序
+mysql> SELECT * from w3cschool_tbl ORDER BY w3cschool_author DESC;
+
+
+group by
+with rollup
+coalesce 来设置一个可以取代 NUll 的名称
+mysql> SELECT coalesce(name, '总数'), SUM(singin) as singin_count FROM  employee_tbl GROUP BY name WITH ROLLUP;
++--------------------------+--------------+
+| coalesce(name, '总数') | singin_count |
++--------------------------+--------------+
+| 小丽                   |            2 |
+| 小明                   |            7 |
+| 小王                   |            7 |
+| 总数                   |           16 |
++--------------------------+--------------+
+
+update修改数据表数据
+mysql> UPDATE w3cschool_tbl 
+    -> SET w3cschool_title='Learning JAVA' 
+    -> WHERE w3cschool_id=3
 ```  
   
 * pymysql 
