@@ -1,4 +1,7 @@
+* [mysql](#1)
+* [pymysql](#2)
 
+<a id = '1'></a>
 * mysql库的操作：  
 ```
 mysql> create database test;
@@ -23,7 +26,9 @@ mysql> describe people;
 | name  | varchar(20) | YES  |     | NULL    |       |
 | loc   | varchar(40) | YES  |     | NULL    |       |
 +-------+-------------+------+-----+---------+-------+
-
+```
+* [alter命令](https://www.w3cschool.cn/mysql/mysql-alter.html)
+```
 mysql> alter table people add descri varchar(20);
 mysql> alter table people modify num varchar(20);
 mysql> alter table people change loc location varchar(40);
@@ -118,7 +123,13 @@ mysql> UPDATE w3cschool_tbl
     -> SET w3cschool_title='Learning JAVA' 
     -> WHERE w3cschool_id=3
 ```  
+* 正则表达式
+```
+mysql> SELECT name FROM person_tbl WHERE name REGEXP '^st';
+```
   
+  
+<a id = '2'></a>
 * pymysql 
 ```
 >>> import pymysql
@@ -128,8 +139,6 @@ mysql> UPDATE w3cschool_tbl
 	#创建游标
 ```  
 
-### 10.06.2017
-* pymysql
 1. 插入数据
 ```python
 ret = cur.excute('insert into table(field1, field2) values(%s,%s)', (a,b))
