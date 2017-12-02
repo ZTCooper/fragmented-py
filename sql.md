@@ -54,6 +54,8 @@ mysql> insert into people(num, location, name)
 mysql> insert into people
     -> values(2, 'nanjing','zyp'),
     -> (3, 'beijing','qjw');
+    
+insert ignore into 避免插入重复数据
 
 mysql> update people
     -> set location ='lanzhou'
@@ -117,6 +119,16 @@ mysql> SELECT coalesce(name, '总数'), SUM(singin) as singin_count FROM  employ
 | 小王                   |            7 |
 | 总数                   |           16 |
 +--------------------------+--------------+
+
+group by 获取不重复数据
+mysql> SELECT last_name, first_name
+    -> FROM person_tbl
+    -> GROUP BY (last_name, first_name);
+
+distinct 过滤重复
+mysql> SELECT DISTINCT last_name, first_name
+    -> FROM person_tbl
+    -> ORDER BY last_name;
 
 update修改数据表数据
 mysql> UPDATE w3cschool_tbl 
