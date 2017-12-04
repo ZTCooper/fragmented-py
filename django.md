@@ -1,4 +1,3 @@
-### 10.05.2017  
 
 * *django 1.9* 后 `python manage.py syncdb` 已不适用  
 创建 app 定义 class 后，加入到 **INSTALLED_APPS** 中， 执行以下命令 creat table  
@@ -25,3 +24,5 @@ TIME_ZONE = 'Asia/Shanghai'
 import pymysql
 pymysql.install_as_MySQLdb()
 ```
+
+* ModelAdmin也要register才行
