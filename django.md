@@ -26,3 +26,7 @@ pymysql.install_as_MySQLdb()
 ```
 
 * ModelAdmin也要register才行
+
+* {% csrf_token %} views中要用render才可以
+
+* 注意url的正则表达式！天呐！找了一晚上bug！（傻了我……
