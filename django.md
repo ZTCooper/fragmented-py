@@ -30,3 +30,7 @@ pymysql.install_as_MySQLdb()
 * {% csrf_token %} views中要用render才可以
 
 * 注意url的正则表达式！天呐！找了一晚上bug！（傻了我……
+
+* DateTimeField(auto_now = True)
+
+* DEBUG = False 时需添加 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
